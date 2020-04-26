@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Journal</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="section">
+      <div id="weather-card" style="display: none;">
+        <img id="weather-icon" src="" alt="">
+        <div id="weather-info">
+          <div class="info" id="date"></div>
+          <div class="info" id="location"></div>
+          <div class="info" id="status"></div>
+          <div class="info" id="temp"></div>
+          <div class="info" id="content"></div>
+        </div>
+      </div>
+      <div id="info-msg">No search have been made</div>
+    </div>
+    <div id="search-form" class="section">
+      <label for="city-name"><strong>City Name</strong></label>
+      <input type="text" id="city-name">
+      <span class="error-msg" style="display: none;"><em>Required field</em></span>
+      <label for="feelings"><strong>Share your feelings</strong></label>
+      <textarea id="feelings" cols="30" rows="10"></textarea>
+      <button id="submitForm" class="search-btn">Search</button>
+    </div>
+    <div id="all-search" class="section">
+    </div>
+    <script src="app.js" type="text/javascript"></script>
+
+</body>
+
+</html>

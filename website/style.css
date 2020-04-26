@@ -1,0 +1,115 @@
+body{
+    margin: 0px;
+    font-family: 'Oswald';
+}
+
+.container {
+    background: efefef;
+    width: 100vw;
+    height: 100vh;
+}
+
+/************************************* Weather card section */
+#weather-card {
+    display: flex;
+    width: fit-content;
+    padding: 20px;
+    margin: auto;
+}
+
+.section {
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    background: #fff;
+    box-shadow: 1px 2px 14px 0px rgba(46, 61, 73, 0.2);
+}
+
+#weather-icon {
+    width: 200px;
+    margin-right: 10px;
+}
+
+#weather-info {
+    padding-left: 50px;
+    border-left: 1px solid #bfbfbf;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px 0px;
+}
+
+.info {
+    margin-bottom: 10px;
+}
+
+#info-msg {
+    padding: 20px;
+    text-align: center;
+}
+
+/********************************* Form section */
+input[type=text], textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=text]:focus, textarea:focus {
+    color: #272833;
+    border-color: #ef443b;
+    outline: 0;
+ }
+
+ #search-form {
+     padding: 20px;
+ }
+
+ .search-btn {
+    border: none;
+	padding: 8px 12px;
+    background: transparent;
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #fff;
+    background: #ef443b;
+    cursor: pointer;
+    width: 100%;
+}
+
+.error-msg {
+    font-size: .8rem;
+    color: #ef443b;
+ }
+
+/**************************** All search section  */
+
+#all-search {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.serach-card {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+
+/****************************** Phone */
+@media(max-width: 576px) {
+    #weather-card{
+        flex-direction: column;
+    }
+    #weather-icon{
+        margin: auto;
+    }
+
+}
