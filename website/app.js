@@ -5,7 +5,7 @@ const iconLink = 'http://openweathermap.org/img/wn/';
 const iconSuffix = '@2x.png'
 
 const cityInput = document.getElementById('zip-code');
-const submitBtn = document.getElementById('submitForm');
+const generate = document.getElementById('generate');
 const errorMsg = document.querySelector('.error-msg');
 const feelingText = document.getElementById('feelings');
 
@@ -119,7 +119,7 @@ function updateUi(data) {
 }
 
 /******************************** Adding on click event to the submit form */
-submitBtn.addEventListener('click', () => {
+generate.addEventListener('click', () => {
     if (cityInput.value && cityInput.value != '') {
         getWeather(apiUrl, cityInput.value, apikey).then((data) => {
             if (data) {
