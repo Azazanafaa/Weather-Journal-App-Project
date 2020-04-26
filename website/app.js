@@ -1,10 +1,10 @@
 /* Global Variables */
-const apikey = '&APPID=ffed4aa63204dd3d8fb822260953b11e';
-const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const apikey = 'ffed4aa63204dd3d8fb822260953b11e';
+const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?';
 const iconLink = 'http://openweathermap.org/img/wn/';
 const iconSuffix = '@2x.png'
 
-const cityInput = document.getElementById('city-name');
+const cityInput = document.getElementById('zip-code');
 const submitBtn = document.getElementById('submitForm');
 const errorMsg = document.querySelector('.error-msg');
 const feelingText = document.getElementById('feelings');
@@ -26,8 +26,8 @@ let d = new Date();
 let newDate = d.getMonth() + '/' + d.getDate() + '/' + d.getFullYear();
 
 /**************************** Getting weather from openweathermap api */
-const getWeather = async (url = '') => {
-    const response = await fetch(url);
+const getWeather = async (url = '', zipcode, key) => {
+    const response = await fetch(url + `zip=${zipcode}` + `&appid=${key}`);
     try {
         const data = await response.json();
         if (data.message && data.message == 'city not found') {
@@ -108,22 +108,27 @@ function updateAllSearchUI(weatherData) {
         <div class="info" ><strong>Status: </strong>${data.status}</div>
         <div class="info" ><strong>Temperature: </strong>${data.temp}</div>
       </div>`
-      allSearchSection.insertAdjacentHTML('afterbegin', card);
+        allSearchSection.insertAdjacentHTML('afterbegin', card);
     }
+}
+
+/******************************** Updates the UI */
+function updateUi(data) {
+    updateWeatherCardUI(data[data.length - 1]);
+    updateAllSearchUI(data);
 }
 
 /******************************** Adding on click event to the submit form */
 submitBtn.addEventListener('click', () => {
     if (cityInput.value && cityInput.value != '') {
-        getWeather(apiUrl + cityInput.value + apikey).then((data) => {
+        getWeather(apiUrl, cityInput.value, apikey).then((data) => {
             if (data) {
-                updateWeatherCardUI(data);
                 saveData('/saveSearch', data);
             }
         }).then(() => {
             return getAllData('/allSearch');
         }).then((data) => {
-            updateAllSearchUI(data);
+            updateUi(data);
         });
         errorMsg.style.display = 'none';
     } else {
